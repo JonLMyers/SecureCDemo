@@ -4,5 +4,5 @@ language:
 sudo: true
 
 script:
-    -   gcc -o StratuxPay input.c
+    -   make
     -   ./StratuxPay
