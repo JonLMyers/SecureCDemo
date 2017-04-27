@@ -17,13 +17,11 @@ install:
 script:
     - make
     - cppcheck --quiet --error-exitcode=1 .
-    - ./StratuxPay.out < testing/valid
-    - ./StratuxPay.out < testing/name_violation | grep "invalid"
-    - ./StratuxPay.out < testing/card_violation | grep "information"
-    - zzuf -B 10000 ./StratuxPay.out < /dev/null
-    - zzuf -B 10000 ./StratuxPay.out < /dev/urandom
-    - zzuf -B 10000 ./StratuxPay.out < testing/valid
-    - zzuf -B 10000 ./StratuxPay.out < testing/name_violation | grep "invalid"
-    - zzuf -B 10000 ./StratuxPay.out < testing/card_violation | grep "information"
-    -   make
-    -   ./StratuxPay
+    - ./StratuxPay < testing/valid
+    - ./StratuxPay < testing/name_violation | grep "invalid"
+    - ./StratuxPay < testing/card_violation | grep "information"
+    - zzuf -B 10000 ./StratuxPay < /dev/null
+    - zzuf -B 10000 ./StratuxPay < /dev/urandom
+    - zzuf -B 10000 ./StratuxPay < testing/valid
+    - zzuf -B 10000 ./StratuxPay < testing/name_violation | grep "invalid"
+    - zzuf -B 10000 ./StratuxPay < testing/card_violation | grep "information"
