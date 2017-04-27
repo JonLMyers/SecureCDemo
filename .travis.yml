@@ -1,6 +1,6 @@
-Language: C
-Compiler: gcc
-Dist: trusty
+language: C
+compiler: gcc
+dist: trusty
 
 sudo: true
 
