@@ -1,5 +1,6 @@
 Language: C
 Compiler: gcc
+Dist: trusty
 
 sudo: true
 
