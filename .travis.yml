@@ -1,8 +1,29 @@
-language:
-  - c
+Language: C
+Compiler: gcc
 
 sudo: true
 
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+  - eval "$(curl -sL https://raw.githubusercontent.com/ryuichis/oclint-cpp-travis-ci-examples/master/oclint-ci-install.sh)"
+
+install:
+  - sudo apt-get install -qq g++-6
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+
+  - sudo apt-get install -qq cppcheck
+  - sudo apt-get install -qq zzuf
 script:
+    - make
+    - cppcheck --quiet --error-exitcode=1 .
+    - ./StratuxPay.out < testing/valid
+    - ./StratuxPay.out < testing/name_violation | grep "invalid"
+    - ./StratuxPay.out < testing/card_violation | grep "information"
+    - zzuf -B 10000 ./StratuxPay.out < /dev/null
+    - zzuf -B 10000 ./StratuxPay.out < /dev/urandom
+    - zzuf -B 10000 ./StratuxPay.out < testing/valid
+    - zzuf -B 10000 ./StratuxPay.out < testing/name_violation | grep "invalid"
+    - zzuf -B 10000 ./StratuxPay.out < testing/card_violation | grep "information"
     -   make
     -   ./StratuxPay
