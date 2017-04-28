@@ -15,6 +15,7 @@ int main()
     char* name = getName();
     char* card = getCreditCard();
     char* expiration = getExprDate();
+    char* zip = getZip();
     char* amount = getAmount();
     char* email = getEmail();
     printf("\n##################OUTPUT#################\n\n");
@@ -22,12 +23,14 @@ int main()
     printf("Name: %s", name);
     printf("Credit Card: %s", card);
     printf("Expiration Date: %s", expiration);
+    printf("Zip Code: %s", zip);
     printf("Purchase Amount: %s", amount);
     printf("Email Address: %s", email);
 
     free(name);
     free(card);
     free(expiration);
+    free(zip);
     free(amount);
     free(email);
     return 0;
