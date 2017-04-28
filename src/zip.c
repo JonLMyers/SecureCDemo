@@ -13,8 +13,6 @@ char* getZip(void) {
     
     int numHyph = 0;
 
-    printf("len = %i \n", len);
-
     if(len != 11) { 
         if(len != 6) {
             printf("Invalid zip length\n");
