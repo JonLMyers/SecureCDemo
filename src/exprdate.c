@@ -14,16 +14,22 @@ char* getExprDate(void)
     checkNullity(expiration);
 
     int length = 11;
-    for(int i = 0; i < length; i++) {
-        if(i == 2 || i == 5) {
-            if(expiration[i] != '/') {
+    for(int i = 0; i < length; i++) 
+    {
+        if(i == 2 || i == 5) 
+        {
+            if(expiration[i] != '/') 
+            {
                 printf("Please use '/' between the month, date, and year.\n");
                 printf("Example: MM/DD/YYYY.\n");
                 free(expiration);
                 exit(2);
             }
-        } else if(!isdigit(expiration[i])){
-            if( !(i == length-1 && expiration[i] == '\n') ) {
+        } 
+        else if(!isdigit(expiration[i]))
+        {
+            if( !(i == length-1 && expiration[i] == '\n') )
+            {
                 printf("Your expiration data is invalid.\n");
                 printf("Example: MM/DD/YYYY.\n");
                 free(expiration);
@@ -43,7 +49,8 @@ char* getExprDate(void)
     day[2] = '\0';
 
     int d = (int)strtod(day, &buffer);
-    if(d > 31 || d < 1) {
+    if(d > 31 || d < 1) 
+    {
         printf("Invalid Day. Please enter a valid day 1-31\n");
         free(expiration);
         exit(11);
@@ -54,7 +61,8 @@ char* getExprDate(void)
     month[1] = expiration[1];
     month[2] = '\0';
     int m = (int)strtod(month, &buffer);
-    if(m > 12 || m < 1) {
+    if(m > 12 || m < 1) 
+    {
         printf("Invalid Month. Please enter a valid month 1-12\n");
         free(expiration);
         exit(12);
@@ -70,22 +78,26 @@ char* getExprDate(void)
     int y = (int)strtod(year, &buffer);
 
     /* Ensure valid year. */
-    if(y < CURRENT_YEAR) {
+    if(y < CURRENT_YEAR) 
+    {
         printf("Invalid Date. Card Expired.\n");
         free(expiration);
         exit(13);   
     }
     
     /* Ensure valid month. */
-    if(y == CURRENT_YEAR) {
+    if(y == CURRENT_YEAR) 
+    {
         if(m < CURRENT_MONTH) {
             printf("Invalid Date. Card Expired.\n");
             free(expiration);
             exit(14);  
         }
 
-        if(m == CURRENT_MONTH) {
-            if(d < CURRENT_DAY) {
+        if(m == CURRENT_MONTH) 
+        {
+            if(d < CURRENT_DAY) 
+            {
                 printf("Invalid Date. Card Expired.\n");
                 free(expiration);
                 exit(15);
@@ -93,7 +105,8 @@ char* getExprDate(void)
         }
     }
 
-    switch((int)month_digit) {
+    switch((int)month_digit) 
+    {
 
         case 1  :
             sprintf(retval, "January %d", (int)strtod(day, &buffer));
