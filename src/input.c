@@ -4,6 +4,7 @@
 #include "cardnumber.h"
 #include "exprdate.h"
 #include "amount.h"
+#include "zip.h"
 #include "email.h"
 
 int main()
