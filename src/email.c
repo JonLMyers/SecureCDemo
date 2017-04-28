@@ -26,13 +26,12 @@ char* getEmail(void) {
     int numPer = 0; 
     // iterate down string and check chars
     for(unsigned int i=0;i<len;i++) {
-        printf("index: %i \n", i);
+        //printf("index: %i \n", i);
         // Handle '.' 
         if(email[i] == '.') {
             if(numAmp == 0) {
                 continue; }
             if(numAmp == 1) {
-                printf("tester\n");
                 numPer++;
                 continue; }
         }
@@ -45,7 +44,7 @@ char* getEmail(void) {
         // Handle the @ symbol, allow only 1  
         if(email[i] == '@') {
             if (numAmp == 0) {
-                printf("got @ \n");
+                //printf("got @ \n");
                 numAmp++;
                 continue;
             }
@@ -62,7 +61,7 @@ char* getEmail(void) {
         if(!isdigit(email[i])) {
             //printf("got notdigit\n");
             if (!isalpha(email[i])) {
-                printf("not alpha/digit \n");
+                //printf("not alpha/digit \n");
                 usage();
                 free(email);
                 exit(10);
