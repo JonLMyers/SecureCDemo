@@ -1,6 +1,6 @@
-$(echo 1)
+json dog xxx <script>alert("No xss");</script>
 1234-1234-1234-1234
-5/19/1995
+05/19/2020
 44001
 $4.00
 broke@gmail.com
