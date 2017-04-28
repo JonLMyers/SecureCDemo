@@ -18,6 +18,7 @@ install:
 script:
     - make
     - cppcheck --quiet --error-exitcode=1 .
+    - oclint-json-compilation-database
     - ./StratuxPay < testing/testing/valid_input
     - ./StratuxPay < testing/testing/name_violation | grep "Invalid"
     - ./StratuxPay < testing/testing/card_violation | grep "information"
