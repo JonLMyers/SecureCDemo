@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#define CURRENT_YEAR 2017
+#define CURRENT_MONTH 4
+#define CURRENT_DAY 28
 
 char* getExprDate(void)
 {
