@@ -3,5 +3,6 @@
 
 int checkNullity(char *object);
 char* InputHandler(void);
+int checkAlpha(char *object);
 
 #endif

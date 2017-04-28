@@ -10,6 +10,12 @@ char* getName(void)
     printf("Name: ");
     char* name = InputHandler();
     checkNullity(name);
+    if(checkAlpha(name))
+    {
+        printf("Error: Invalid Name.");
+        free(name);
+        exit(1);
+    }
 
     return name;
 }

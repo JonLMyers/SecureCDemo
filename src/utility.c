@@ -26,3 +26,24 @@ char* InputHandler(void)
     }
     return buffer;
 }
+
+int checkAlpha(char *object)
+{
+    int length = strlen(object);
+    int spaces = 0;
+    for(int i = 0; i < length; i++)
+    {
+        if(!isalpha(object[i]) && object[i] != '\'')
+        {
+            if(object[i] == ' ')
+            {
+                spaces++;
+            }
+        }
+        if(spaces > 2)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
