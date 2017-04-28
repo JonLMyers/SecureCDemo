@@ -19,7 +19,7 @@ script:
     - make
     - cppcheck --quiet --error-exitcode=1 .
     - ./StratuxPay < testing/testing/valid_input
-    - ./StratuxPay < testing/testing/name_violation | grep "invalid"
+    - ./StratuxPay < testing/testing/name_violation | grep "correct"
     - ./StratuxPay < testing/testing/card_violation | grep "information"
     - zzuf -B 10000 ./StratuxPay < /dev/null
     - zzuf -B 10000 ./StratuxPay < /dev/urandom
