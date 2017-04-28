@@ -14,6 +14,7 @@ void usage(void) {
 char* getEmail(void) {
     printf("Enter a valid email: ");
     char* email = InputHandler();
+    checkNullity(email);
     unsigned int len = strlen(email);
     
     // No email can be shorter than 3 chars
